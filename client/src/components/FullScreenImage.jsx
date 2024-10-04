@@ -42,7 +42,7 @@ const FullScreenImage = ({ image, onClose, onDelete }) => {
 
               <a
                 href={image.src}
-                download={image.prompt}
+                download={image.prompt.length > 10 ? image.prompt.substring(0, 10) + '...' : image.prompt}
                 className="text-white hover:text-gray-300"
                 onClick={(e) => e.stopPropagation()} // Prevent event propagation to modal backdrop
               >
