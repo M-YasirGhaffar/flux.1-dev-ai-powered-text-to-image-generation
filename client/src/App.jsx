@@ -11,39 +11,53 @@ function App() {
   const [fullScreenImage, setFullScreenImage] = useState(null);
 
   useEffect(() => {
-    const storedImages = JSON.parse(
-      localStorage.getItem("generatedImages") || "[]"
-    );
+    const storedImages = JSON.parse(localStorage.getItem("generatedImages") || "[]");
     setGeneratedImages(storedImages);
   }, []);
 
   const addGeneratedImage = (image) => {
-    const newImages = [image, ...generatedImages].slice(0, 20); // Keep only the last 20 images
+    const newImages = [image, ...generatedImages].slice(0, 20);
     setGeneratedImages(newImages);
     localStorage.setItem("generatedImages", JSON.stringify(newImages));
   };
 
   const openFullScreenImage = (image) => {
-    setFullScreenImage(image);
+    setFullScreenImage(image); // Update state with the clicked image
   };
 
   const closeFullScreenImage = () => {
-    setFullScreenImage(null);
+    setFullScreenImage(null); // Clear the fullScreenImage state
+  };
+
+  const onDelete = (imageId) => {
+    const updatedImages = generatedImages.filter((image) => image.id !== imageId);
+    setGeneratedImages(updatedImages);
+    localStorage.setItem("generatedImages", JSON.stringify(updatedImages));
   };
 
   return (
     <div className="flex flex-col min-h-screen bg-[#1a1a1a] text-gray-100">
       <main className="flex-grow container mx-auto px-4 py-8">
         <ImageGenerator addGeneratedImage={addGeneratedImage} />
+        
         <Gallery
           images={generatedImages}
           openFullScreenImage={openFullScreenImage}
         />
+        
         <About />
         <Usage />
       </main>
       <Footer />
-      <FullScreenImage image={fullScreenImage} onClose={closeFullScreenImage} />
+
+
+      {fullScreenImage && (
+        <FullScreenImage
+          image={fullScreenImage}
+          onClose={closeFullScreenImage}
+          onDelete={onDelete} 
+        />
+      )}
     </div>
   );
 }

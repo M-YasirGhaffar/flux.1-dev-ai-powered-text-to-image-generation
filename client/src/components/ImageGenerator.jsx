@@ -31,10 +31,7 @@ const ImageGenerator = ({ addGeneratedImage }) => {
     setPrompt("");
   };
 
-  // Create a debounced version of the API request
-  const debouncedGenerateImage = debounce(async (prompt) => {
-    console.log("Generating image with prompt:", prompt);
-    console.log("Calling API...", import.meta.env.VITE_API_URL);
+  const debouncedGenerateImage = debounce(async (prompt) => { 
     try {
       const response = await axios.post(
         import.meta.env.VITE_API_URL,
@@ -80,7 +77,6 @@ const ImageGenerator = ({ addGeneratedImage }) => {
 
   // Handle form submission
   const handleSubmit = (e) => {
-    console.log("Form submitted with prompt", prompt);
     e.preventDefault(); // Prevent form from reloading
     if (prompt.length > MAX_CHARS) {
       setError(`Prompt must be ${MAX_CHARS} characters or less.`);
