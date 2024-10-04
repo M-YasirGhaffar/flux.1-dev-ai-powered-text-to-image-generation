@@ -11,10 +11,10 @@ const ipRateLimiter = rateLimit({
   skipFailedRequests: false,
 });
 
-// Global rate limiter: max 50 requests per hour total from all users
+// Global rate limiter: max 25 requests per hour total from all users
 const globalRateLimiter = rateLimit({
   windowMs: 60 * 60 * 1000, // 1 hour window
-  max: 50, // Max 50 requests per hour for all users combined
+  max: 25, // Max 25 requests per hour for all users combined
   message: "Too many requests overall, please try again after an hour.",
   standardHeaders: true,
   legacyHeaders: false,
