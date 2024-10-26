@@ -102,7 +102,7 @@ const ImageGenerator = ({ addGeneratedImage }) => {
             />
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold text-white">
-            FLUX.1-dev
+          FLUX.1-schnell
           </h1>
         </div>
 
@@ -144,7 +144,8 @@ const ImageGenerator = ({ addGeneratedImage }) => {
         {loading && (
           <div className="text-center">
             <LoadingSpinner />
-            <p className="mt-4 text-gray-400 font-sans">Generating image... This may take approximately 1 to 5 minutes.</p>          </div>
+            <p className="mt-4 text-gray-400 font-sans">Generating image... This may take a few seconds</p>          
+            </div>
         )}
 
         {image && (

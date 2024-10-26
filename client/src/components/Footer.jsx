@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="bg-white py-4 mt-8">
       <div className="container mx-auto px-4 text-center text-gray-700">
         <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-          <p>&copy; {new Date().getFullYear()} FLUX.1-dev. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} FLUX.1-schnell. All rights reserved.</p>
           <a 
             href="https://github.com/M-YasirGhaffar/text-to-image-generation-full-stack" 
             target="_blank" 
