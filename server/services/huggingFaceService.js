@@ -4,7 +4,7 @@ const config = require("../config/config");
 const queryHuggingFace = async (data) => {
   try {
     const response = await axios.post(
-      "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev",
+      "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-schnell",
       data,
       {
         headers: {
